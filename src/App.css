@@ -1,0 +1,173 @@
+/* --- 基础背景和排版 --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5; /* 浅灰色的背景，让白色卡片更凸显 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* 确保在电脑大屏上也能居中 */
+  min-height: 100vh;
+}
+
+/* --- 主容器 (白底卡片) --- */
+.container {
+  width: 100%;
+  max-width: 420px; /* 模拟手机屏幕宽度 */
+  background: #ffffff;
+  margin: 20px;
+  padding: 30px 20px;
+  border-radius: 16px; /* 更圆润的边角 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* 柔和的高级感阴影 */
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+/* --- 修复标题和描述文字 --- */
+h1 {
+  font-size: 28px;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 8px 0;
+  line-height: 1.2; /* 修复截图里的重叠问题！ */
+  letter-spacing: -0.5px;
+}
+
+.container > p:not(.status-msg) {
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* --- 状态提示语 --- */
+.status-msg {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #007aff;
+  min-height: 20px;
+  margin: 16px 0;
+}
+
+/* --- 全局按钮样式 --- */
+button, .btn-sms {
+  font-family: inherit;
+  border: none;
+  border-radius: 10px; /* 类似 iOS 的按钮圆角 */
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.2s ease; /* 增加平滑的动画过渡 */
+  box-sizing: border-box;
+}
+
+/* 按钮点击时的缩小动效 */
+button:active, .btn-sms:active {
+  transform: scale(0.96); 
+}
+
+/* --- 获取位置主按钮 --- */
+.btn-primary {
+  background-color: #007aff; /* 现代蓝色 */
+  color: white;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3); /* 蓝色发光阴影 */
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+/* --- 历史记录头部区域 --- */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.history-header h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.btn-clear {
+  background-color: #f2f2f7;
+  color: #ff3b30; /* 红色清理文字 */
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+/* --- 历史记录列表 --- */
+.location-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 卡片之间的间距 */
+}
+
+/* 历史记录独立卡片 */
+.location-card {
+  background: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.loc-info {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.loc-info strong {
+  color: #111;
+}
+
+.status-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* --- 列表底部的短信和删除按钮 --- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-sms {
+  background-color: #34c759; /* 护眼绿色 */
+  color: white;
+  flex: 1; /* 占据剩余空间 */
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-danger {
+  background-color: #ff3b30; /* 警告红色 */
+  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 30px 0;
+}
