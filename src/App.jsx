@@ -7,14 +7,18 @@ function App() {
   const [locations, setLocations] = useState([]);
   const [status, setStatus] = useState('');
 
-  // 1. 初始化 (Read - CRUD 的读取)
-  // useEffect 钩子，传入空数组 [] 表示只在组件第一次加载时运行一次
+ // 1. 初始化读取本地存储 (加了白屏防崩溃处理)
   useEffect(() => {
-    // 尝试从浏览器的 localStorage 中读取键名为 'travel_locations' 的数据
-    // 如果没有数据，则返回 null，此时使用 || [] 赋予一个空数组作为默认值
-    const savedLocations = JSON.parse(localStorage.getItem('travel_locations')) || [];
-    // 将读取到的数据存入 React 的状态中，渲染到界面上
-    setLocations(savedLocations);
+    try {
+      const savedData = localStorage.getItem('travel_locations');
+      // 如果有数据就解析，没数据就给空数组
+      const parsedData = savedData ? JSON.parse(savedData) : [];
+      // 确保存进去的绝对是数组，防止脏数据导致 map() 函数报错白屏
+      setLocations(Array.isArray(parsedData) ? parsedData : []);
+    } catch (error) {
+      console.error('本地数据解析失败，已重置为空', error);
+      setLocations([]);
+    }
   }, []);
 
   // 2. 写入本地存储 (Create/Update - CRUD 的创建和更新)

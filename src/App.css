@@ -14,7 +14,7 @@ body {
   width: 100%;
   max-width: 420px; /* 模拟手机屏幕宽度 */
   background: #ffffff;
-  margin: 20px;
+  margin: 40px auto;
   padding: 30px 20px;
   border-radius: 16px; /* 更圆润的边角 */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* 柔和的高级感阴影 */
